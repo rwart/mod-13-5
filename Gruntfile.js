@@ -1,27 +1,50 @@
 module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
+    jsdoc: {
+        dist: {
+            src: ['README.md', 'program.js', 'modules/*.js'],
+            options: {
+                destination: 'doc',
+              },
+          },
+      },
     jshint: {
-      all: ['js/*.js', 'Gruntfile.js'],
+      all: ['program.js', 'modules/*.js', 'Gruntfile.js'],
     },
     watch: {
       scripts: {
-          files: ['*.js', 'js/*.js', 'Gruntfile.js'],
-          tasks: ['jshint'],
+          files: ['README.md', 'program.js', 'modules/*.js'],
+          tasks: ['jshint', 'jsdoc'],
           options: {
               spawn: false,
             },
         },
     },
-
+    browserSync: {
+        dev: {
+            bsFiles: {
+                src: ['doc/*.html'],
+              },
+            options: {
+                watchTask: true,
+                server: './doc', // server: true for baseDir: "./" Default - port: 3000
+              },
+          },
+      },
   });
 
   // Load the plugins tasks
+  grunt.loadNpmTasks('grunt-jsdoc');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-browser-sync');
 
-  // task for browserSync, jshint  on the run
-  grunt.registerTask('wait', ['watch']);
+  // 'npm run watch" runs task watch for jshint, jsdoc
+  grunt.registerTask('wait', ['browserSync', 'watch']);
+
+  // 'npm run doc" runs task jsdoc
+  grunt.registerTask('doc', ['jsdoc']);
 
   // "npm test" runs these task(s)
   grunt.registerTask('test', ['jshint']);
