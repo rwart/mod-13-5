@@ -3,18 +3,18 @@ module.exports = function (grunt) {
   grunt.initConfig({
     jsdoc: {
         dist: {
-            src: ['README.md', 'program.js', 'modules/*.js'],
+            src: ['README.md', 'index.js', 'modules/*.js'],
             options: {
                 destination: 'doc',
               },
           },
       },
     jshint: {
-      all: ['program.js', 'modules/*.js', 'Gruntfile.js'],
+      all: ['index.js', 'modules/*.js', 'Gruntfile.js'],
     },
     watch: {
       scripts: {
-          files: ['README.md', 'program.js', 'modules/*.js'],
+          files: ['README.md', 'index.js', 'modules/*.js'],
           tasks: ['jshint', 'jsdoc'],
           options: {
               spawn: false,

@@ -1,5 +1,5 @@
 {
-  "name": "mode-13-3",
+  "name": "mode-13-5",
   "version": "1.0.0",
   "description": "",
   "main": "Gruntfile.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rwart/mode-13-3.git"
+    "url": "git+https://github.com/rwart/mode-13-5.git"
   },
   "author": "rwart",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/rwart/mode-13-3/issues"
+    "url": "https://github.com/rwart/mode-13-5/issues"
   },
-  "homepage": "https://github.com/rwart/mode-13-3e#readme",
+  "homepage": "https://github.com/rwart/mode-13-5e#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
@@ -25,5 +25,8 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-jsdoc": "^2.2.0"
+  },
+  "dependencies": {
+    "colors": "^1.1.2"
   }
 }
